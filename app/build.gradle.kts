@@ -1,19 +1,19 @@
 plugins {
     id("com.android.application")
-    id("com.google.gms.google-services")
     id("kotlin-kapt")
     kotlin("android")
     id("kotlin-parcelize")
     id("dagger.hilt.android.plugin")
+//    id("com.google.gms.google-services")
 //    id("com.google.firebase.crashlytics")
 }
 
 android {
     compileSdk = 33
-    namespace = "com.mhvmedia.kawachx"
+    namespace = "com.devname.cleanarchitecturetemplate"
 
     defaultConfig {
-        applicationId = "com.mhvmedia.kawachx"
+        applicationId = "com.devname.cleanarchitecturetemplate"
         minSdk = 21
         targetSdk = 33
         versionCode = 18
