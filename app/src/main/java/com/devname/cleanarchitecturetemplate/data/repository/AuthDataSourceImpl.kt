@@ -1,6 +1,5 @@
 package com.devname.cleanarchitecturetemplate.data.repository
 
-import com.devname.cleanarchitecturetemplate.data.db.dao.UsersDao
 import com.devname.cleanarchitecturetemplate.data.network.AuthClient
 import com.devname.cleanarchitecturetemplate.data.network.dto.auth.UserDto
 import com.devname.cleanarchitecturetemplate.data.utils.auth.LoginResponse
@@ -14,7 +13,6 @@ import javax.inject.Inject
 
 class AuthDataSourceImpl @Inject constructor(
     private val authClient: AuthClient,
-    private val usersDao: UsersDao
 ) : AuthDataSource {
 
     private val TAG = "AuthDataSourceImpl"
