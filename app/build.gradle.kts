@@ -21,8 +21,8 @@ android {
         applicationId = "com.devname.cleanarchitecturetemplate"
         minSdk = 21
         targetSdk = 34
-        versionCode = 18
-        versionName = "18.0"
+        versionCode = 1
+        versionName = "1.0"
         resourceConfigurations += setOf("en", "fr", "hi", "ne", "mr")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -98,9 +98,9 @@ dependencies {
     implementation(Dependencies.NAVIGATION_UI_KTX)
 
 //    room db
-    implementation(Dependencies.ROOM_KTX)
-    implementation(Dependencies.ROOM_RUNTIME)
-    kapt(Dependencies.ROOM_COMPILER)
+//    implementation(Dependencies.ROOM_KTX)
+//    implementation(Dependencies.ROOM_RUNTIME)
+//    kapt(Dependencies.ROOM_COMPILER)
 
     //retrofit
     implementation(Dependencies.RETROFIT)

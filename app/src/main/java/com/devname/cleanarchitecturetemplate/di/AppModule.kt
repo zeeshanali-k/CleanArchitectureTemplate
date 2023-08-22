@@ -1,14 +1,10 @@
 package com.devname.cleanarchitecturetemplate.di
 
-import android.content.Context
-import androidx.room.Room
 import com.devname.cleanarchitecturetemplate.BuildConfig
-import com.devname.cleanarchitecturetemplate.data.db.CleanAppDB
 import com.devname.cleanarchitecturetemplate.data.network.AuthClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -65,14 +61,5 @@ object AppModule {
         return retrofit.create(AuthClient::class.java)
     }
 
-    @Singleton
-    @Provides
-    fun provideRoomDB(@ApplicationContext context: Context): CleanAppDB {
-        return Room.databaseBuilder(
-            context,
-            CleanAppDB::class.java,
-            "clean_app.db"//TODO: Change db name
-        ).build()
-    }
 
 }
