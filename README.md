@@ -2,7 +2,7 @@
 A Starter Clean Architecture Template for XML and Compose Android Project with DI, Network and other neccessary dependencies
 
 
-Branches:
+<h2>Branches</h2>:
 
 <h4>main:</h4> XML Template with Hilt, Retrofit, Navigation Component and Room Setup
 <h4>without-room-db:</h4> XML Template with Hilt, Retrofit and Navigation Component Setup
