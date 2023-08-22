@@ -73,6 +73,7 @@ android {
 }
 
 dependencies {
+    //TODO update to current latest versions
     implementation(Dependencies.APP_COMPACT)
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.MATERIAL)
