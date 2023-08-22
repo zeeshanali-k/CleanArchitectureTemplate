@@ -1,15 +1,22 @@
 private object Versions {
     const val RETROFIT = "2.9.0"
     const val LOGGING_INTERCEPTOR = "5.0.0-alpha.10"
-    const val HILT = "2.46.1"
+    const val HILT = "2.47"
+    const val HILT_NAVIGATION_COMPOSE = "1.1.0-alpha01"
     const val APP_COMPACT = "1.7.0-alpha03"
     const val CORE_KTX = "1.10.1"
-    const val MATERIAL = "1.9.0"
+    const val MATERIAL = "1.2.0-alpha05"
+    const val COMPOSE_ACTIVITY = "1.6.1"
     const val CONSTRAINT_LAYOUT = "2.1.4"
     const val LIVE_DATA_KTX = "2.6.1"
+    const val LIFECYCLE_KTX = "2.5.1"
+    const val COMPOSE_NAVIGATION = "2.7.0"
+    const val COMPOSE_VERSION = "1.5.0"
+    const val ACCOMPANIST = "0.29.1-alpha"
+    const val COIL = "2.2.2"
 
     const val NAVIGATION = "2.7.0"
-    const val ROOM = "2.5.2"
+    const val ROOM = "2.6.0-alpha03"
 
     const val FIREBASE_BOM = "30.5.0"
 }
@@ -22,11 +29,24 @@ object Dependencies {
     const val LOGGING_INTERCEPTOR =
         "com.squareup.okhttp3:logging-interceptor:${Versions.LOGGING_INTERCEPTOR}"
     const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
+    const val HILT_NAVIGATION_COMPOSE = "androidx.hilt:hilt-navigation-compose:${Versions.HILT_NAVIGATION_COMPOSE}"
     const val HILT_COMPILER = "com.google.dagger:hilt-compiler:${Versions.HILT}"
 
     const val APP_COMPACT = "androidx.appcompat:appcompat:${Versions.APP_COMPACT}"
     const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
 
+    //Compose
+    const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE_KTX}"
+    const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.LIFECYCLE_KTX}"
+    const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY}"
+    const val COMPOSE_MATERIAL3 = "androidx.compose.material3:material3-android:${Versions.MATERIAL}"
+    const val COMPOSE_NAVIGATION = "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}"
+    const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE_VERSION}"
+    const val COMPOSE_UI_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.COMPOSE_VERSION}"
+    const val ACCOMPAIST_SYSTEM_UI_CONTROLLER = "com.google.accompanist:accompanist-systemuicontroller:${Versions.ACCOMPANIST}"
+
+
+    const val COIL = "io.coil-kt:coil-compose:${Versions.COIL}"
     //ROOM DB
     const val ROOM_RUNTIME = "androidx.room:room-runtime:${Versions.ROOM}"
     const val ROOM_KTX = "androidx.room:room-ktx:${Versions.ROOM}"

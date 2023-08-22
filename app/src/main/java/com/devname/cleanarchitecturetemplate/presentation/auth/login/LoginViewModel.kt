@@ -9,12 +9,10 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val authDataSource: AuthDataSource
-): ViewModel(){
+):ViewModel() {
+
     fun doSomething() {
-
+        //TODO: Do something
     }
-
-    //Do something
-
 
 }
