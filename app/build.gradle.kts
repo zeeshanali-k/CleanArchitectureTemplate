@@ -79,13 +79,19 @@ android {
 dependencies {
     //TODO update to current latest versions
     implementation(Dependencies.CORE_KTX)
-    implementation(Dependencies.COMPOSE_MATERIAL3)
+
     implementation(Dependencies.LIFECYCLE_RUNTIME)
     implementation(Dependencies.LIFECYCLE_VIEWMODEL)
     implementation(Dependencies.COMPOSE_ACTIVITY)
     implementation(Dependencies.COMPOSE_NAVIGATION)
+
+
+    implementation(platform(Dependencies.COMPOSE_BOM))
     implementation(Dependencies.COMPOSE_UI)
     implementation(Dependencies.COMPOSE_UI_PREVIEW)
+    implementation(Dependencies.COMPOSE_MATERIAL3)
+    implementation(Dependencies.COMPOSE_UI_GRAPHICS)
+
     implementation(Dependencies.ACCOMPAIST_SYSTEM_UI_CONTROLLER)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

@@ -14,6 +14,7 @@ object Versions {
     const val LIFECYCLE_KTX = "2.5.1"
     const val COMPOSE_NAVIGATION = "2.7.0"
     const val COMPOSE_VERSION = "1.5.0"
+    const val COMPOSE_BOM = "2023.08.00"
     const val ACCOMPANIST = "0.29.1-alpha"
     const val COIL = "2.2.2"
 
@@ -41,9 +42,11 @@ object Dependencies {
     const val LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LIFECYCLE_KTX}"
     const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.LIFECYCLE_KTX}"
     const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:${Versions.COMPOSE_ACTIVITY}"
-    const val COMPOSE_MATERIAL3 = "androidx.compose.material3:material3-android:${Versions.MATERIAL}"
+    const val COMPOSE_MATERIAL3 = "androidx.compose.material3:material3"
     const val COMPOSE_NAVIGATION = "androidx.navigation:navigation-compose:${Versions.COMPOSE_NAVIGATION}"
-    const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE_VERSION}"
+    const val COMPOSE_UI = "androidx.compose.ui:ui"
+    const val COMPOSE_BOM = "androidx.compose:compose-bom:${Versions.COMPOSE_BOM}"
+    const val COMPOSE_UI_GRAPHICS = "androidx.compose.ui:ui-graphics"
     const val COMPOSE_UI_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.COMPOSE_VERSION}"
     const val ACCOMPAIST_SYSTEM_UI_CONTROLLER = "com.google.accompanist:accompanist-systemuicontroller:${Versions.ACCOMPANIST}"
 
