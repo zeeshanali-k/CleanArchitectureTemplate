@@ -73,6 +73,7 @@ android {
 }
 
 dependencies {
+    //TODO update to current latest versions
     implementation(Dependencies.APP_COMPACT)
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.MATERIAL)
@@ -97,11 +98,6 @@ dependencies {
     implementation(Dependencies.NAVIGATION_FRAGMENT_KTX)
     implementation(Dependencies.NAVIGATION_UI_KTX)
 
-//    room db
-//    implementation(Dependencies.ROOM_KTX)
-//    implementation(Dependencies.ROOM_RUNTIME)
-//    kapt(Dependencies.ROOM_COMPILER)
-
     //retrofit
     implementation(Dependencies.RETROFIT)
     implementation(Dependencies.RETROFIT_GSON)
@@ -109,7 +105,7 @@ dependencies {
 
 
 //    Firebase
-//    implementation(platform(Dependencies.FIREBASE_BOM))
+//TODO    implementation(platform(Dependencies.FIREBASE_BOM))
 //    implementation(Dependencies.FIREBASE_CORE)
 //    implementation(Dependencies.FIREBASE_MESSAGING)
 //    implementation(Dependencies.FIREBASE_CRASHLYTICS)

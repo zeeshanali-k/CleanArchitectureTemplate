@@ -1,7 +1,9 @@
-private object Versions {
+object Versions {
+
+    //TODO update to current latest versions
     const val RETROFIT = "2.9.0"
     const val LOGGING_INTERCEPTOR = "5.0.0-alpha.10"
-    const val HILT = "2.46.1"
+    const val HILT = "2.47"
     const val APP_COMPACT = "1.7.0-alpha03"
     const val CORE_KTX = "1.10.1"
     const val MATERIAL = "1.9.0"
@@ -9,7 +11,6 @@ private object Versions {
     const val LIVE_DATA_KTX = "2.6.1"
 
     const val NAVIGATION = "2.7.0"
-    const val ROOM = "2.5.2"
 
     const val FIREBASE_BOM = "30.5.0"
 }
@@ -26,11 +27,6 @@ object Dependencies {
 
     const val APP_COMPACT = "androidx.appcompat:appcompat:${Versions.APP_COMPACT}"
     const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
-
-    //ROOM DB
-    const val ROOM_RUNTIME = "androidx.room:room-runtime:${Versions.ROOM}"
-    const val ROOM_KTX = "androidx.room:room-ktx:${Versions.ROOM}"
-    const val ROOM_COMPILER = "androidx.room:room-compiler:${Versions.ROOM}"
 
 
     //Firebase
