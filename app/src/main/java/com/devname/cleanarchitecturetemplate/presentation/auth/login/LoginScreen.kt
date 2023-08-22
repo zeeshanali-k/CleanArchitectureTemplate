@@ -9,21 +9,25 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import com.devname.cleanarchitecturetemplate.R
-import com.devname.cleanarchitecturetemplate.utils.Screen
+import com.devname.cleanarchitecturetemplate.presentation.auth.destinations.RegisterScreenDestination
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 
 @Composable
+@Destination
+@RootNavGraph(start = true)
 fun LoginScreen(
-    navController: NavController,
+    navController: DestinationsNavigator,
     loginViewModel: LoginViewModel = hiltViewModel()
 ) {
 
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = {
             loginViewModel.doSomething()
-            navController.navigate(Screen.Register.route)
+            navController.navigate(RegisterScreenDestination())
         }) {
             Text(text = stringResource(id = R.string.register))
         }

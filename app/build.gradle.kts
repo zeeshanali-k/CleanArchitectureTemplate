@@ -6,6 +6,7 @@ plugins {
     kotlin("android")
     id("kotlin-parcelize")
     id("dagger.hilt.android.plugin")
+    id("com.google.devtools.ksp")
 //    id("com.google.gms.google-services")
 //    id("com.google.firebase.crashlytics")
 }
@@ -38,6 +39,15 @@ android {
 
     lint {
         checkReleaseBuilds = false
+    }
+
+
+    applicationVariants.all {
+        kotlin.sourceSets {
+            getByName(name) {
+                kotlin.srcDir("build/generated/ksp/$name/kotlin")
+            }
+        }
     }
 
     buildTypes {
@@ -78,13 +88,18 @@ android {
 
 dependencies {
     implementation(Dependencies.CORE_KTX)
-    implementation(Dependencies.COMPOSE_MATERIAL3)
     implementation(Dependencies.LIFECYCLE_RUNTIME)
     implementation(Dependencies.LIFECYCLE_VIEWMODEL)
     implementation(Dependencies.COMPOSE_ACTIVITY)
-    implementation(Dependencies.COMPOSE_NAVIGATION)
+
+    implementation(platform(Dependencies.COMPOSE_BOM))
     implementation(Dependencies.COMPOSE_UI)
     implementation(Dependencies.COMPOSE_UI_PREVIEW)
+    implementation(Dependencies.COMPOSE_MATERIAL3)
+    implementation(Dependencies.COMPOSE_UI_GRAPHICS)
+
+    implementation(Dependencies.COMPOSE_DESTINATIONS)
+    ksp(Dependencies.COMPOSE_DESTINATIONS_KSP)
     implementation(Dependencies.ACCOMPAIST_SYSTEM_UI_CONTROLLER)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

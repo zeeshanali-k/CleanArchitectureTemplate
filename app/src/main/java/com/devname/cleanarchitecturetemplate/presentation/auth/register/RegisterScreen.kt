@@ -8,13 +8,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavController
 import com.devname.cleanarchitecturetemplate.R
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 
 @Composable
+@Destination
 fun RegisterScreen(
-    navController: NavController
+    navController: DestinationsNavigator
 ) {
 
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {

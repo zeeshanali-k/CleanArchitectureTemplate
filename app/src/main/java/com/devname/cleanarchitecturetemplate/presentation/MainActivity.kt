@@ -3,48 +3,47 @@ package com.devname.cleanarchitecturetemplate.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
-import androidx.navigation.compose.NavHost
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.ui.Alignment
 import androidx.navigation.compose.rememberNavController
-import com.devname.cleanarchitecturetemplate.presentation.auth.login.LoginScreen
-import com.devname.cleanarchitecturetemplate.presentation.auth.register.RegisterScreen
+import com.devname.cleanarchitecturetemplate.presentation.auth.NavGraphs
 import com.devname.cleanarchitecturetemplate.presentation.ui.theme.PassPayTheme
-import com.devname.cleanarchitecturetemplate.utils.Screen
-import com.devname.cleanarchitecturetemplate.utils.navComposable
+import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.animations.defaults.NestedNavGraphDefaultAnimations
+import com.ramcosta.composedestinations.animations.defaults.RootNavGraphDefaultAnimations
+import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
+    @OptIn(ExperimentalMaterialNavigationApi::class, ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val navController = rememberNavController()
             PassPayTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                ) {
-                    NavHost(
-                        navController = navController,
-                        startDestination = Screen.Login.route//TODO: Change start destination
-                    ) {
-                        //navComposable is custom composable for easy animations
-                        // management across whole app
-                        navComposable(
-                            Screen.Login.route
-                        ) {
-                            LoginScreen(navController)
-                        }
-                        navComposable(
-                            Screen.Register.route
-                        ) {
-                            RegisterScreen(navController)
-                        }
-                    }
-                }
+
+                val navHostEngine = rememberAnimatedNavHostEngine(
+                    navHostContentAlignment = Alignment.TopCenter,
+                    rootDefaultAnimations = RootNavGraphDefaultAnimations(
+                        enterTransition = { slideInHorizontally() },
+                        exitTransition = { slideOutHorizontally() }
+                    ),
+                    defaultAnimationsForNestedNavGraph = mapOf(
+                        NavGraphs.root to NestedNavGraphDefaultAnimations(
+                            enterTransition = { slideInHorizontally() },
+                            exitTransition = { slideOutHorizontally() }
+                        ),
+                    ))
+                DestinationsNavHost(
+                    navGraph = NavGraphs.root,
+                    engine = navHostEngine,
+                    navController = rememberNavController()
+                )
             }
         }
     }
