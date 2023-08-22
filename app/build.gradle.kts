@@ -77,6 +77,7 @@ android {
 }
 
 dependencies {
+    //TODO update to current latest versions
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.COMPOSE_MATERIAL3)
     implementation(Dependencies.LIFECYCLE_RUNTIME)

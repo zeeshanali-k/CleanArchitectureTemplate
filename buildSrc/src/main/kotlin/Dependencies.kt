@@ -1,4 +1,6 @@
-private object Versions {
+object Versions {
+
+    //TODO update to current latest versions
     const val RETROFIT = "2.9.0"
     const val LOGGING_INTERCEPTOR = "5.0.0-alpha.10"
     const val HILT = "2.47"
