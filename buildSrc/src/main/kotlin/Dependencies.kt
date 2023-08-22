@@ -1,7 +1,7 @@
 private object Versions {
     const val RETROFIT = "2.9.0"
     const val LOGGING_INTERCEPTOR = "5.0.0-alpha.10"
-    const val HILT = "2.46.1"
+    const val HILT = "2.47"
     const val APP_COMPACT = "1.7.0-alpha03"
     const val CORE_KTX = "1.10.1"
     const val MATERIAL = "1.9.0"
@@ -9,7 +9,7 @@ private object Versions {
     const val LIVE_DATA_KTX = "2.6.1"
 
     const val NAVIGATION = "2.7.0"
-    const val ROOM = "2.5.2"
+    const val ROOM = "2.6.0-alpha03"
 
     const val FIREBASE_BOM = "30.5.0"
 }
