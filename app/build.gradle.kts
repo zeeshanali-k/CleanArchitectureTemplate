@@ -104,11 +104,6 @@ dependencies {
     implementation(Dependencies.HILT_NAVIGATION_COMPOSE)
     kapt(Dependencies.HILT_COMPILER)
 
-//    room db
-    implementation(Dependencies.ROOM_KTX)
-    implementation(Dependencies.ROOM_RUNTIME)
-    kapt(Dependencies.ROOM_COMPILER)
-
 
     //image loading
 // TODO   implementation(Dependencies.COIL)
