@@ -1,10 +1,16 @@
 package com.devname.cleanarchitecturetemplate.di
 
+import android.content.Context
+import androidx.room.Room
+import com.devname.cleanarchitecturetemplate.BuildConfig
+import com.devname.cleanarchitecturetemplate.data.db.CleanAppDB
 import com.devname.cleanarchitecturetemplate.data.network.AuthClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -28,25 +34,26 @@ object AppModule {
             .writeTimeout(60, TimeUnit.SECONDS)
             .addNetworkInterceptor(httpLoggingInterceptor)
             .retryOnConnectionFailure(true)
-//            For setting default query parameters with all requests
-//            .addInterceptor(Interceptor { chain: Interceptor.Chain ->
-//                val builder = chain.request()
-//                    .newBuilder()
-//                    .addHeader("Accept", "application/json")
-//                    .addHeader("Content-Type", "application/json")
-//                chain.proceed(
-//                    builder.url(
-//                        chain.request().url
-//                            .newBuilder()
-//                            .addQueryParameter("param_name", value)
-//                            .build()
-//                    )
-//                        .build()
-//                )
-//            })
+            //For setting default query parameters with all requests
+            .addInterceptor(Interceptor { chain: Interceptor.Chain ->
+                val builder = chain.request()
+                    .newBuilder()
+                    .addHeader("Accept", "application/json")
+                    .addHeader("Content-Type", "application/json")
+                chain.proceed(
+                    builder.url(
+                        chain.request().url
+                            .newBuilder()
+                    //TODO: Remove if not needed
+                            //.addQueryParameter("param_name", "value")
+                            .build()
+                    )
+                        .build()
+                )
+            })
             .build()
         return Retrofit.Builder()
-            .baseUrl("base_url")
+            .baseUrl(BuildConfig.BASE_URL)//TODO: Update in gradle.properties
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -58,5 +65,14 @@ object AppModule {
         return retrofit.create(AuthClient::class.java)
     }
 
+    @Singleton
+    @Provides
+    fun provideRoomDB(@ApplicationContext context: Context): CleanAppDB {
+        return Room.databaseBuilder(
+            context,
+            CleanAppDB::class.java,
+            "clean_app.db"//TODO: Change db name
+        ).build()
+    }
 
 }

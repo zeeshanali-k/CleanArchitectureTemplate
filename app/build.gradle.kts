@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("kotlin-kapt")
@@ -9,17 +11,29 @@ plugins {
 }
 
 android {
-    compileSdk = 33
-    namespace = "com.devname.cleanarchitecturetemplate"
+    compileSdk = 34
+    namespace = "com.devname.cleanarchitecturetemplate"//TODO: Change package name
+
+    val properties = Properties()
+    val localProps = File(rootDir.absolutePath, "gradle.properties")
 
     defaultConfig {
         applicationId = "com.devname.cleanarchitecturetemplate"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 18
         versionName = "18.0"
         resourceConfigurations += setOf("en", "fr", "hi", "ne", "mr")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        if (localProps.exists()) {
+            properties.load(localProps.inputStream())
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                properties["BASE_URL"] as String
+            )
+        }
     }
 
     lint {
@@ -59,19 +73,19 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.7.0-alpha01")
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("com.google.android.material:material:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(Dependencies.APP_COMPACT)
+    implementation(Dependencies.CORE_KTX)
+    implementation(Dependencies.MATERIAL)
+    implementation(Dependencies.CONSTRAINT_LAYOUT)
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation(Dependencies.LIVE_DATA_KTX)
+    implementation(Dependencies.VIEW_MODEL_KTX)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
     //Hilt for DI
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-compiler:2.44")
+    implementation(Dependencies.HILT)
+    kapt(Dependencies.HILT_COMPILER)
 
 
 //    For responsiveness
@@ -80,25 +94,25 @@ dependencies {
 
 
 //    Navigation Component
-//    implementation("androidx.navigation:navigation-fragment-ktx:2.5.2")
-//    implementation("androidx.navigation:navigation-ui-ktx:2.5.2")
+    implementation(Dependencies.NAVIGATION_FRAGMENT_KTX)
+    implementation(Dependencies.NAVIGATION_UI_KTX)
 
 //    room db
-//    implementation("androidx.room:room-runtime:2.4.3")
-//    implementation("androidx.room:room-ktx:2.4.3")
-//    kapt("androidx.room:room-compiler:2.4.3")
+    implementation(Dependencies.ROOM_KTX)
+    implementation(Dependencies.ROOM_RUNTIME)
+    kapt(Dependencies.ROOM_COMPILER)
 
     //retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.10")
+    implementation(Dependencies.RETROFIT)
+    implementation(Dependencies.RETROFIT_GSON)
+    implementation(Dependencies.LOGGING_INTERCEPTOR)
 
 
 //    Firebase
-//    implementation(platform("com.google.firebase:firebase-bom:30.5.0"))
-//    implementation("com.google.firebase:firebase-core")
-//    implementation("com.google.firebase:firebase-messaging")
-//    implementation("com.google.firebase:firebase-crashlytics")
+//    implementation(platform(Dependencies.FIREBASE_BOM))
+//    implementation(Dependencies.FIREBASE_CORE)
+//    implementation(Dependencies.FIREBASE_MESSAGING)
+//    implementation(Dependencies.FIREBASE_CRASHLYTICS)
 
 
 }
